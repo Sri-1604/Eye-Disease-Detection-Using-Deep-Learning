@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Eye Disease Detection</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        body {
+            background: #f9f9f9;
+            color: #333;
+            padding: 20px;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            padding: 20px 50px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #0047AB;
+        }
+        nav {
+            display: flex;
+            align-items: center; /* Ensures vertical alignment */
+            gap: 20px;
+        }
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+        }
+        nav a:hover {
+            color: #0047AB;
+        }
+        .predict-btn {
+            background: #0047AB;
+            color: white;
+            padding: 8px 20px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px; /* Ensures consistent text size */
+            line-height: 1;  /* Aligns with the height of links */
+        }
+        .predict-btn:hover {
+            background: #00307E;
+        }
+        main {
+            display: flex;
+            justify-content: center; /* Centers the text and image together */
+            gap: 120px; /* Adjust space between text and image */
+            padding: 100px 50px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+        }
+        .content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Vertically center */
+            align-items: center; /* Horizontally center */
+            text-align: center; /* Ensures text looks centered */
+        }
+        .content h1 {
+            font-size: 36px;
+            color: #001F54;
+            margin-bottom: 20px;
+        }
+        .content p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 30px;
+        }
+        .learn-more-btn {
+            background: transparent;
+            border: 2px solid #0047AB;
+            color: #0047AB;
+            padding: 10px 30px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .learn-more-btn:hover {
+            background: #0047AB;
+            color: white;
+        }
+        .image-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Vertically center */
+            align-items: center; /* Horizontally center */
+            text-align: center; /* Ensures text looks centered */
+        }
+        .image-container img {
+            width: 100%;
+            border-radius: 50%;
+            border: 5px solid #0047AB;
+            aspect-ratio: 1/1; /* Ensures the image is always a perfect square */
+            object-fit: cover;  /* Ensures the image covers the circular frame properly */
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">LIVEDOC</div>
+        <nav>
+            <a href="/">Home</a>
+            <a href="#">About Us</a>
+            <a href="#">Help</a>
+            <a href="#">Contact</a>
+            <button class="predict-btn" onclick="window.location.href='/predict'">Predict</button>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="content">
+            <h1>We are developing a healthcare system around you</h1>
+            <p>We think that everyone should have easy access to excellent healthcare. 
+               Our aim is to make the procedure as simple as possible for our patients 
+               and to offer treatment no matter where they are — in person or at their convenience.</p>
+            <button class="learn-more-btn" onclick="learnMore()">Learn more</button>
+        </div>
+        <div class="image-container">
+            <img src="{{ url_for('static', filename='images/PIC2.jpg') }}" alt="Doctor with certificates">
+        </div>
+    </main>
+
+</body>
+</html>

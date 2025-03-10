@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIVEDOC - AI Healthcare</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f4;
+            color: #1a1a2e;
+        }
+
+        /* Header Styles */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #003366;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #003366;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .predict-btn {
+            padding: 0.5rem 1.5rem;
+            border: 2px solid #003366;
+            background: none;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 50px;
+        }
+
+        .predict-btn:hover {
+            background-color: #003366;
+            color: white;
+        }
+
+        /* Hero Sections */
+        .hero-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 80px 5%;
+            gap: 2rem;
+        }
+
+        .light-hero {
+            background-color: #cce5ff;
+            color: #1a1a2e;
+        }
+
+        .dark-hero {
+            background-color: #002244;
+            color: white;
+        }
+
+        .hero-text, .hero-content {
+            max-width: 50%;
+        }
+
+        .hero-text h1, .hero-content h1 {
+            font-size: 3rem;
+            font-weight: 600;
+        }
+
+        .hero-text span {
+            color: #003366;
+        }
+
+        .hero-text p, .hero-content p {
+            margin: 1rem 0 2rem 0;
+            font-size: 1.1rem;
+        }
+
+        .appointment-btn, .learn-btn, .disease-btn {
+            padding: 1rem 2rem;
+            background-color: #003366;
+            color: white;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 50px;
+        }
+
+        .appointment-btn:hover, .learn-btn:hover, .disease-btn:hover {
+            background-color: #001122;
+        }
+
+        .hero-image img {
+            max-width: 500px;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Main Section */
+        main {
+            background: #005b96;
+            color: white;
+            padding: 100px 5%;
+            text-align: center;
+        }
+
+        main h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        main p {
+            font-size: 1.5rem;
+            margin-bottom: 50px;
+        }
+
+        /* Footer */
+        footer {
+            background: #003b6f;
+            color: white;
+            padding: 30px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .footer-section {
+            margin-bottom: 20px;
+        }
+
+        .footer-section h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-section ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+        }
+
+        .footer-section ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .bottom-bar {
+            background: #1b2a49;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+        }
+
+        .bottom-bar span {
+            color: #f77f00;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">LIVEDOC</div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="/about">About Us</a>
+            <a href="#">Help</a>
+            <a href="#">Contact</a>
+            <button class="predict-btn" onclick="window.location.href='/predict'">Predict</button>
+        </nav>
+    </header>
+
+    <section class="hero-section light-hero">
+        <div class="hero-text">
+            <h1>We're <span>determined</span> for your <span>better life</span>.</h1>
+            <p>You can get the care you need 24/7 — be it online or in person. You will be treated by caring specialist doctors.</p>
+            <button class="appointment-btn">Make an Appointment</button>
+        </div>
+        <div class="hero-image">
+            <img src="{{ url_for('static', filename='images/PIC.jpg') }}" alt="Doctor Consultation Illustration">
+        </div>
+    </section>
+    
+    <section class="hero-section dark-hero">
+        <div class="hero-image">
+            <img src="{{ url_for('static', filename='images/PIC1.jpeg') }}" alt="Doctor Consultation">
+        </div>
+        <div class="hero-content">
+            <h1>Eye Care with Top Professionals and In Budget.</h1>
+            <p>We've built a healthcare system that puts your needs first. For us, there is nothing more important than the health of you and your loved ones.</p>
+            <button class="disease-btn">Disease Prediction</button>
+        </div>
+    </section>    
+
+    <main>
+        <h1>LIVEDOC</h1>
+        <p>The world's most trusted AI tool.</p>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-section">
+            <h3>Departments</h3>
+            <ul>
+                <li><a href="#">Eye care</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Membership</h3>
+            <ul>
+                <li><a href="#">Free trial</a></li>
+                <li><a href="#">Silver</a></li>
+                <li><a href="#">Premium</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Customer Care</h3>
+            <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Get Update</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <div class="bottom-bar">All rights Reserved © Smartinternz, 2023 | Made with <span>❤️</span> by Smartinternz</div>
+</body>
+</html>

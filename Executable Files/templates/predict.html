@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predict Disease - LIVEDOC</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f4;
+            color: #1a1a2e;
+            padding: 20px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #003366;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #003366;
+            font-weight: 500;
+            margin-left: 20px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            background: white;
+            padding: 50px;
+            max-width: 600px;
+            margin: 50px auto;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #003366;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: 600;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="file"] {
+            padding: 10px;
+            width: 100%;
+            margin-bottom: 20px;
+            border: 2px solid #003366;
+            border-radius: 10px;
+        }
+
+        .predict-btn {
+            padding: 15px;
+            background-color: #003366;
+            color: white;
+            font-weight: 600;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .predict-btn:hover {
+            background-color: #001122;
+        }
+
+        .result {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #e0f7fa;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .result h2 {
+            color: #00796b;
+        }
+
+        .uploaded-image {
+            margin-top: 20px;
+            max-width: 100%;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">LIVEDOC</div>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/about">About Us</a>
+            <a href="#">Help</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Upload an Image for Disease Prediction</h1>
+        <form action="/predict" method="POST" enctype="multipart/form-data">
+            <label for="file-upload">Choose an Image File:</label>
+            <input type="file" id="file-upload" name="image" accept="image/*" required>
+            <button type="submit" class="predict-btn">Predict Disease</button>
+        </form>
+
+        {% if prediction %}
+        <div class="result">
+            <h2>Prediction Result:</h2>
+            <p><strong>{{ prediction }}</strong></p>
+            
+            {% if image_path %}
+            <h3>Uploaded Image:</h3>
+            <img src="{{ url_for('static', filename='uploads/' + image_path) }}" class="uploaded-image" alt="Uploaded Image">
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
