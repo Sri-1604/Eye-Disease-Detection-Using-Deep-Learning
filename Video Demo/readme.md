@@ -1,1 +1,1 @@
-This is the video demo of the source codes used for this project.
+Video demo of how the disease is predicted in webpage.
